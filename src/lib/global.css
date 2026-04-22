@@ -1,0 +1,152 @@
+@font-face {
+  font-family: AlfaSlab;
+  src: url('/fonts/AlfaSlabOne-Regular.ttf');
+}
+
+@font-face {
+  font-family: NotoSans;
+  src: url('/fonts/NotoSans.ttf');
+}
+
+@font-face {
+  font-family: Pacifico;
+  src: url('/fonts/Pacifico-Regular.ttf');
+}
+
+:root {
+  --white: #d5d6d8;
+  --black: #1f1f1f;
+  --sys-color-1: #ff5555;
+  --sys-color-2: #fff955;
+  --sys-color-3: #74ff55;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  font-family: NotoSans, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  padding: 1.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: 1em solid transparent;
+  background: 
+    linear-gradient(var(--white) 0 0) padding-box,
+    linear-gradient(#ff00b3, #007bff, #00ff91) border-box;
+  font-size: 1.5rem;
+}
+
+.prev, .next {
+  height: 100vh;
+  position: fixed;
+  width: 4rem;
+  top: 0;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  z-index: 9999999;
+}
+
+.prev { left: 0; }
+.next { right: 0; }
+
+.slideNumber {
+  position: fixed;
+  bottom: 1em;
+  right: 1.5em;
+  font-size: 1.25em;
+  font-weight: bolder;
+  color: var(--black);
+  font-family: AlfaSlab;
+}
+
+.vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 100%;
+  height: 100%;
+}
+
+.horizontal {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  width: 100%;
+  height: 100%;
+}
+
+.title {
+  width: 100%;
+  font-size: 2em;
+  font-family: AlfaSlab;
+  letter-spacing: -1px;
+  color: var(--black);
+}
+
+.title::before {
+  content: '« ';
+  opacity: 0.5;
+}
+
+.title::after {
+  content: ' »';
+  opacity: 0.5;
+}
+
+.subtitle {
+  font-size: 1.25em;
+  font-family: AlfaSlab;
+  letter-spacing: -1px;
+  font-weight: lighter;
+  color: var(--black);
+}
+
+.list {
+  margin-inline: 1.5em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  width: 100%;
+}
+
+.list li {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  --list-line-height: 1.25em;
+  line-height: var(--list-line-height);
+  margin-left: 1.5em;
+  color: var(--black);
+}
+
+.list li:first-child {
+  margin-top: 0.5em;
+}
+
+.list li:last-child {
+  margin-bottom: 0.75em;
+}
+
+.list li::before {
+  content: '▧ ';
+  color: hotpink;
+  line-height: 1.5em;
+  position: absolute;
+  left: -1.5em;
+  top: var(--list-line-height);
+  font-size: 1em;
+  transform: translateY(-100%);
+}
